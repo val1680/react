@@ -3,7 +3,7 @@ class Board extends React.Component {
    return <Sqare value={i} />; 
   }
   render(){
-   const status = 'next player: X';
+   const status = 'Nxt player: X';
     return (
       <div>
         <div className="status">{status}</div>
@@ -27,10 +27,19 @@ class Board extends React.Component {
   }
 }
 class Sqare extends React.Component {
+  constructor(props) {
+   super(props);
+    this.state = {
+      value: null,
+    };
+  }
  render() {
   return(
-    <button className="sqare">
-    {this.props.value}
+    <button 
+      className="sqare" 
+      onClick={() => this.setState({value: 'X'})}
+    >
+      {this.state.value}
     </button>
     );
  }
